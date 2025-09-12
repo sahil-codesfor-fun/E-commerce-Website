@@ -6,7 +6,7 @@ const SearchBar = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     console.log('Searching for:', searchTerm);
-    // Placeholder for actual search logic
+    
   };
 
   return (

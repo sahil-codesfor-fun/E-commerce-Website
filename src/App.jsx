@@ -5,9 +5,9 @@ import Collections from './components/sections/Collections';
 import About from './components/sections/About';
 import Footer from './components/sections/Footer';
 import Cart from './components/sections/Cart';
-import WomensPage from './components/sections/WomensPage'; // Import new page
-import MensPage from './components/sections/MensPage';     // Import new page
-import KidsPage from './components/sections/KidsPage';     // Import new page
+import WomensPage from './components/sections/WomensPage'; 
+import MensPage from './components/sections/MensPage';     
+import KidsPage from './components/sections/KidsPage';     
 
 const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
