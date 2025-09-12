@@ -1,14 +1,21 @@
 import React from 'react';
 import Button from '../ui/Button';
+import graphic from '../../assets/graphic.png';
+import backpack from '../../assets/backpack.png';
+import hooded from '../../assets/hooded.png';
+import shorts from '../../assets/shorts.png';
+import kidskirt from '../../assets/skirtkid.png';
+import polo from '../../assets/polo.png';
+
 
 const KidsPage = ({ onBackClick }) => {
   const productList = [
-    { name: 'Graphic Tee', image: 'https://images.unsplash.com/photo-1595180017163-1256338e5531?q=80&w=2574&auto=format&fit=crop', price: 30 },
-    { name: 'Mini Backpack', image: 'https://images.unsplash.com/photo-1575440624855-40742d45e998?q=80&w=2574&auto=format&fit=crop', price: 45 },
-    { name: 'Hooded Sweatshirt', image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=2592&auto=format&fit=crop', price: 55 },
-    { name: 'Denim Shorts', image: 'https://images.unsplash.com/photo-1623596205739-1d428f52281c?q=80&w=2670&auto=format&fit=crop', price: 40 },
-    { name: 'Printed Skirt', image: 'https://images.unsplash.com/photo-1610444605963-39d67503722e?q=80&w=2574&auto=format&fit=crop', price: 35 },
-    { name: 'Stripe Polo', image: 'https://images.unsplash.com/photo-1607519639556-9d33a0b8058a?q=80&w=2574&auto=format&fit=crop', price: 38 },
+    { name: 'Graphic Tee', image: graphic, price: 30 },
+    { name: 'Mini Backpack', image: backpack, price: 45 },
+    { name: 'Hooded Sweatshirt', image: hooded, price: 55 },
+    { name: 'Denim Shorts', image: shorts, price: 40 },
+    { name: 'Printed Skirt', image: kidskirt, price: 35 },
+    { name: 'Stripe Polo', image: polo, price: 38 },
   ];
 
   return (
