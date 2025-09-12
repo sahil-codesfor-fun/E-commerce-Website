@@ -121,7 +121,7 @@ const CheckoutPage = ({ onBackClick, cartItems, onOrderPlaced, onContinueShoppin
                 className="w-1/2 px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
               />
             </div>
-            
+
             <h3 className="text-xl font-serif pt-6 mb-2">Payment Method</h3>
             <div className="border border-gray-300 p-4 bg-white">
               <label className="flex items-center space-x-2">
@@ -129,7 +129,7 @@ const CheckoutPage = ({ onBackClick, cartItems, onOrderPlaced, onContinueShoppin
                 <span>Cash on Delivery</span>
               </label>
             </div>
-            
+
             <div className="pt-4 flex justify-between font-bold">
               <span>Total:</span>
               <span>₹{subtotal.toFixed(2)}</span>
@@ -141,7 +141,7 @@ const CheckoutPage = ({ onBackClick, cartItems, onOrderPlaced, onContinueShoppin
           </form>
         </div>
       </div>
-      
+
       {/* Order Confirmation Modal */}
       {isOrderConfirmed && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 z-[60]">
