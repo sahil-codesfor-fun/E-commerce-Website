@@ -7,8 +7,7 @@ import shorts from '../../assets/shorts.png';
 import kidskirt from '../../assets/skirtkid.png';
 import polo from '../../assets/polo.png';
 
-
-const KidsPage = ({ onBackClick }) => {
+const KidsPage = ({ onBackClick, addToCart }) => {
   const productList = [
     { name: 'Graphic Tee', image: graphic, price: 30 },
     { name: 'Mini Backpack', image: backpack, price: 45 },
@@ -38,8 +37,8 @@ const KidsPage = ({ onBackClick }) => {
               className="w-full h-96 object-cover mb-4" 
             />
             <h3 className="text-xl font-serif mb-1">{product.name}</h3>
-            <p className="text-sm font-light text-gray-700">${product.price}</p>
-            <Button className="mt-4">Add to Cart</Button>
+            <p className="text-sm font-light text-gray-700">₹{product.price}</p>
+            <Button onClick={() => addToCart(product)} className="mt-4">Add to Cart</Button>
           </div>
         ))}
       </div>

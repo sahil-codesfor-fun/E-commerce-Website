@@ -7,7 +7,7 @@ import shirt from '../../assets/shirt.png';
 import boots from '../../assets/boots.png';
 import sweater from '../../assets/sweater.png';
 
-const MensPage = ({ onBackClick }) => {
+const MensPage = ({ onBackClick, addToCart }) => {
   const productList = [
     { name: 'Tailored Blazer', image: blazer, price: 350 },
     { name: 'Denim Jacket', image: denim, price: 180 },
@@ -37,8 +37,8 @@ const MensPage = ({ onBackClick }) => {
               className="w-full h-96 object-cover mb-4" 
             />
             <h3 className="text-xl font-serif mb-1">{product.name}</h3>
-            <p className="text-sm font-light text-gray-700">${product.price}</p>
-            <Button className="mt-4">Add to Cart</Button>
+            <p className="text-sm font-light text-gray-700">₹{product.price}</p>
+            <Button onClick={() => addToCart(product)} className="mt-4">Add to Cart</Button>
           </div>
         ))}
       </div>

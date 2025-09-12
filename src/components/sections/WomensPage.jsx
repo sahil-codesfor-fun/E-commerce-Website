@@ -7,7 +7,7 @@ import silk from '../../assets/silkblouse.png'
 import knit from '../../assets/knit.png'
 import skirt from '../../assets/skirt.png'
 
-const WomensPage = ({ onBackClick }) => {
+const WomensPage = ({ onBackClick, addToCart }) => {
   const productList = [
     { name: 'Classic Trench Coat', image: coat, price: 299 },
     { name: 'Floral Maxi Dress', image: floral, price: 150 },
@@ -37,8 +37,8 @@ const WomensPage = ({ onBackClick }) => {
               className="w-full h-96 object-cover mb-4" 
             />
             <h3 className="text-xl font-serif mb-1">{product.name}</h3>
-            <p className="text-sm font-light text-gray-700">${product.price}</p>
-            <Button className="mt-4">Add to Cart</Button>
+            <p className="text-sm font-light text-gray-700">₹{product.price}</p>
+            <Button onClick={() => addToCart(product)} className="mt-4">Add to Cart</Button>
           </div>
         ))}
       </div>

@@ -24,7 +24,7 @@ const Hero = () => {
         <p className="text-lg md:text-xl lg:text-2xl font-light mb-8 max-w-2xl mx-auto">
           Elevate your style with pieces that transcend seasons and trends.
         </p>
-        <Button onClick={handleShopClick} className="border-white text-white hover:bg-white hover:text-black">
+        <Button onClick={handleShopClick} className="border-white text-white hover:bg-black hover:text-white">
           Shop the Collections
         </Button>
       </div>
