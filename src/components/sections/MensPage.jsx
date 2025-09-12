@@ -1,14 +1,20 @@
 import React from 'react';
 import Button from '../ui/Button';
+import blazer from '../../assets/blazer.png';
+import denim from '../../assets/denim.png';
+import wool from '../../assets/wool.png';
+import shirt from '../../assets/shirt.png';
+import boots from '../../assets/boots.png';
+import sweater from '../../assets/sweater.png';
 
 const MensPage = ({ onBackClick }) => {
   const productList = [
-    { name: 'Tailored Blazer', image: 'https://images.unsplash.com/photo-1543728069-42861c0d4567?q=80&w=2670&auto=format&fit=crop', price: 350 },
-    { name: 'Denim Jacket', image: 'https://images.unsplash.com/photo-1541018281137-0ed38d4c9d57?q=80&w=2574&auto=format&fit=crop', price: 180 },
-    { name: 'Wool Trousers', image: 'https://images.unsplash.com/photo-1620950669287-2a4069e2c65a?q=80&w=2574&auto=format&fit=crop', price: 120 },
-    { name: 'Classic Oxford Shirt', image: 'https://images.unsplash.com/photo-1520624021798-250917637841?q=80&w=2670&auto=format&fit=crop', price: 85 },
-    { name: 'Leather Boots', image: 'https://images.unsplash.com/photo-1579979708688-299f1165c71b?q=80&w=2670&auto=format&fit=crop', price: 250 },
-    { name: 'Cashmere Sweater', image: 'https://images.unsplash.com/photo-1614741334054-c9f2b87d55f0?q=80&w=2574&auto=format&fit=crop', price: 190 },
+    { name: 'Tailored Blazer', image: blazer, price: 350 },
+    { name: 'Denim Jacket', image: denim, price: 180 },
+    { name: 'Wool Trousers', image: wool, price: 120 },
+    { name: 'Classic Oxford Shirt', image: shirt, price: 85 },
+    { name: 'Leather Boots', image: boots, price: 250 },
+    { name: 'Cashmere Sweater', image: sweater, price: 190 },
   ];
 
   return (
