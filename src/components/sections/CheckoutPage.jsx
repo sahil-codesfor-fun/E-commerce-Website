@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Button from '../ui/Button';
 
 const CheckoutPage = ({ onBackClick, cartItems, onOrderPlaced, onContinueShopping }) => {
@@ -12,6 +12,7 @@ const CheckoutPage = ({ onBackClick, cartItems, onOrderPlaced, onContinueShoppin
   });
 
   const [isOrderConfirmed, setIsOrderConfirmed] = useState(false);
+  const dialogRef = useRef(null); // Ref for the dialog box
 
   const subtotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
@@ -35,6 +36,23 @@ const CheckoutPage = ({ onBackClick, cartItems, onOrderPlaced, onContinueShoppin
     setIsOrderConfirmed(false);
     onContinueShopping();
   };
+
+  // Logic to close the dialog on outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dialogRef.current && !dialogRef.current.contains(event.target)) {
+        handleContinueShopping();
+      }
+    };
+
+    if (isOrderConfirmed) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOrderConfirmed, handleContinueShopping]);
 
   return (
     <div className="container mx-auto px-4 md:px-8 lg:px-16 py-16">
@@ -127,7 +145,7 @@ const CheckoutPage = ({ onBackClick, cartItems, onOrderPlaced, onContinueShoppin
       {/* Order Confirmation Modal */}
       {isOrderConfirmed && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 z-[60]">
-          <div className="bg-white p-10 text-center rounded-lg shadow-lg max-w-sm w-full animate-fadeInUp">
+          <div ref={dialogRef} className="bg-white p-10 text-center rounded-lg shadow-lg max-w-sm w-full animate-fadeInUp">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-20 h-20 text-green-500 mx-auto mb-4 animate-scaleIn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
