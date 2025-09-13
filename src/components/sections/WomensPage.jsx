@@ -9,12 +9,12 @@ import skirt from '../../assets/skirt.png'
 
 const WomensPage = ({ onBackClick, addToCart }) => {
   const productList = [
-    { name: 'Classic Trench Coat', image: coat, price: 299 },
-    { name: 'Floral Maxi Dress', image: floral, price: 150 },
-    { name: 'Leather Satchel', image: leather, price: 220 },
-    { name: 'Silk Blouse', image: silk, price: 95 },
-    { name: 'Knit Sweater', image: knit, price: 80 },
-    { name: 'Elegant Skirt', image: skirt, price: 110 },
+    { name: 'Classic Trench Coat', image: coat, price: 12999 },
+    { name: 'Floral Maxi Dress', image: floral, price: 1500 },
+    { name: 'Leather Satchel', image: leather, price: 2000 },
+    { name: 'Silk Blouse', image: silk, price: 950 },
+    { name: 'Knit Sweater', image: knit, price: 1800 },
+    { name: 'Elegant Skirt', image: skirt, price: 3000 },
   ];
 
   return (

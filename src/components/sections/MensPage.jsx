@@ -9,12 +9,12 @@ import sweater from '../../assets/sweater.png';
 
 const MensPage = ({ onBackClick, addToCart }) => {
   const productList = [
-    { name: 'Tailored Blazer', image: blazer, price: 350 },
-    { name: 'Denim Jacket', image: denim, price: 180 },
-    { name: 'Wool Trousers', image: wool, price: 120 },
-    { name: 'Classic Oxford Shirt', image: shirt, price: 85 },
-    { name: 'Leather Boots', image: boots, price: 250 },
-    { name: 'Cashmere Sweater', image: sweater, price: 190 },
+    { name: 'Tailored Blazer', image: blazer, price: 9000 },
+    { name: 'Denim Jacket', image: denim, price: 4000 },
+    { name: 'Wool Trousers', image: wool, price: 1200 },
+    { name: 'Classic Oxford Shirt', image: shirt, price: 1850 },
+    { name: 'Leather Boots', image: boots, price: 2500 },
+    { name: 'Cashmere Sweater', image: sweater, price: 1900 },
   ];
 
   return (

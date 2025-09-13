@@ -9,12 +9,12 @@ import polo from '../../assets/polo.png';
 
 const KidsPage = ({ onBackClick, addToCart }) => {
   const productList = [
-    { name: 'Graphic Tee', image: graphic, price: 30 },
-    { name: 'Mini Backpack', image: backpack, price: 45 },
-    { name: 'Hooded Sweatshirt', image: hooded, price: 55 },
-    { name: 'Denim Shorts', image: shorts, price: 40 },
-    { name: 'Printed Skirt', image: kidskirt, price: 35 },
-    { name: 'Stripe Polo', image: polo, price: 38 },
+    { name: 'Graphic Tee', image: graphic, price: 900 },
+    { name: 'Mini Backpack', image: backpack, price: 1200 },
+    { name: 'Hooded Sweatshirt', image: hooded, price: 1500 },
+    { name: 'Denim Shorts', image: shorts, price: 1500 },
+    { name: 'Printed Skirt', image: kidskirt, price: 850 },
+    { name: 'Stripe Polo', image: polo, price: 700 },
   ];
 
   return (
