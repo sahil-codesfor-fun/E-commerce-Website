@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../ui/Button';
-import women from '../../assets/women.png';
-import men from '../../assets/men.png';
+import men from '../../assets/men.png'
+import women from '../../assets/women.png'
 import kids from '../../assets/kids.png'
 
-const Collections = ({ onShopNowClick }) => {
+const Collections = () => {
+  const navigate = useNavigate();
   const collections = [
     {
       name: "Women's",
@@ -44,7 +46,7 @@ const Collections = ({ onShopNowClick }) => {
             >
               <h3 className="text-2xl font-serif mb-2">{collection.name}</h3>
               <Button 
-                onClick={() => onShopNowClick(collection.page)}
+                onClick={() => navigate(`/${collection.page}`)}
                 className="border-white text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
               >
                 Shop Now

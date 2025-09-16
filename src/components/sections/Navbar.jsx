@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import SearchBar from '../ui/SearchBar';
 
-const Navbar = ({ onCartToggle, navigateToPage, navigateToSection, totalItems }) => {
+const Navbar = ({ onCartToggle, totalItems }) => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const searchRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleSearchToggle = () => {
     setIsSearchVisible(!isSearchVisible);
@@ -32,19 +34,19 @@ const Navbar = ({ onCartToggle, navigateToPage, navigateToSection, totalItems })
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white bg-opacity-90 backdrop-blur-sm shadow-sm py-4">
       <div className="container mx-auto px-4 md:px-8 lg:px-16 flex justify-between items-center">
-        <div className="text-xl md:text-2xl lg:text-3xl font-serif font-bold tracking-widest cursor-pointer" onClick={() => navigateToPage('home')}>
+        <Link to="/" className="text-xl md:text-2xl lg:text-3xl font-serif font-bold tracking-widest cursor-pointer">
           Fashion Hub
-        </div>
+        </Link>
         
         <div className="flex items-center space-x-4 md:space-x-6 lg:space-x-12">
           <div className="hidden lg:flex space-x-10 text-sm font-light uppercase tracking-widest">
-            <button onClick={() => navigateToSection('collections')} className="hover:underline underline-offset-4">Shop All</button>
-            <button onClick={() => navigateToSection('about')} className="hover:underline underline-offset-4">About</button>
-            <button onClick={() => navigateToPage('myorders')} className="hover:underline underline-offset-4">My Orders</button>
+            <a href="/#collections" className="hover:underline underline-offset-4">Shop All</a>
+            <a href="/#about" className="hover:underline underline-offset-4">About</a>
+            <Link to="/myorders" className="hover:underline underline-offset-4">My Orders</Link>
           </div>
           
           <div ref={searchRef} className="flex items-center">
-            <button onClick={handleSearchToggle} aria-label="Toggle Search">
+            <button onClick={handleSearchToggle} aria-label="Toggle Search" className="hidden lg:block">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
               </svg>
@@ -74,18 +76,12 @@ const Navbar = ({ onCartToggle, navigateToPage, navigateToSection, totalItems })
           </button>
         </div>
       </div>
-      
-      <div className={`mt-2 ${isSearchVisible ? 'block' : 'hidden'} lg:hidden`}>
-        <div className="container mx-auto px-4">
-          <SearchBar />
-        </div>
-      </div>
 
       <div className={`mt-2 ${isMenuOpen ? 'block' : 'hidden'} lg:hidden`}>
         <div className="flex flex-col items-center space-y-4 py-4 text-sm font-light uppercase tracking-widest bg-white">
-          <button onClick={() => navigateToSection('collections')} className="hover:underline underline-offset-4">Shop All</button>
-          <button onClick={() => navigateToSection('about')} className="hover:underline underline-offset-4">About</button>
-          <button onClick={() => navigateToPage('myorders')} className="hover:underline underline-offset-4">My Orders</button>
+          <a href="/#collections" className="hover:underline underline-offset-4">Shop All</a>
+          <a href="/#about" className="hover:underline underline-offset-4">About</a>
+          <Link to="/myorders" className="hover:underline underline-offset-4">My Orders</Link>
         </div>
       </div>
     </nav>

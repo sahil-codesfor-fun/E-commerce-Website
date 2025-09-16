@@ -1,7 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../ui/Button';
 
-const CheckoutPage = ({ onBackClick, cartItems, onOrderPlaced, onContinueShopping }) => {
+const CheckoutPage = ({ cartItems, onOrderPlaced, onContinueShopping }) => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,7 +15,6 @@ const CheckoutPage = ({ onBackClick, cartItems, onOrderPlaced, onContinueShoppin
   });
 
   const [isOrderConfirmed, setIsOrderConfirmed] = useState(false);
-  const dialogRef = useRef(null); // Ref for the dialog box
 
   const subtotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
@@ -37,26 +39,9 @@ const CheckoutPage = ({ onBackClick, cartItems, onOrderPlaced, onContinueShoppin
     onContinueShopping();
   };
 
-  // Logic to close the dialog on outside click
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dialogRef.current && !dialogRef.current.contains(event.target)) {
-        handleContinueShopping();
-      }
-    };
-
-    if (isOrderConfirmed) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOrderConfirmed, handleContinueShopping]);
-
   return (
     <div className="container mx-auto px-4 md:px-8 lg:px-16 py-16">
-      <button onClick={onBackClick} className="flex items-center text-gray-600 hover:text-black transition-colors mb-8">
+      <button onClick={() => navigate(-1)} className="flex items-center text-gray-600 hover:text-black transition-colors mb-8">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
         </svg>
@@ -121,7 +106,7 @@ const CheckoutPage = ({ onBackClick, cartItems, onOrderPlaced, onContinueShoppin
                 className="w-1/2 px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
               />
             </div>
-
+            
             <h3 className="text-xl font-serif pt-6 mb-2">Payment Method</h3>
             <div className="border border-gray-300 p-4 bg-white">
               <label className="flex items-center space-x-2">
@@ -129,7 +114,7 @@ const CheckoutPage = ({ onBackClick, cartItems, onOrderPlaced, onContinueShoppin
                 <span>Cash on Delivery</span>
               </label>
             </div>
-
+            
             <div className="pt-4 flex justify-between font-bold">
               <span>Total:</span>
               <span>₹{subtotal.toFixed(2)}</span>
@@ -141,11 +126,10 @@ const CheckoutPage = ({ onBackClick, cartItems, onOrderPlaced, onContinueShoppin
           </form>
         </div>
       </div>
-
-      {/* Order Confirmation Modal */}
+      
       {isOrderConfirmed && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 z-[60]">
-          <div ref={dialogRef} className="bg-white p-10 text-center rounded-lg shadow-lg max-w-sm w-full animate-fadeInUp">
+          <div className="bg-white p-10 text-center rounded-lg shadow-lg max-w-sm w-full animate-fadeInUp">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-20 h-20 text-green-500 mx-auto mb-4 animate-scaleIn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
